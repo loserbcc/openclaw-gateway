@@ -1,0 +1,13 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "8770:8770"
+    volumes:
+      - gateway-data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  gateway-data:
