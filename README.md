@@ -27,8 +27,6 @@ Every bot platform sees everything:
 
 OpenClaw Gateway runs on **your hardware**. Messages travel directly from your phone to your server over encrypted WebSocket. Zero third-party visibility.
 
-**Plus**: Connect to [ScrappyLabs](https://scrappylabs.ai) for free TTS, voice cloning, and speech recognition. No account required. No spam. Just free tools for builders.
-
 ---
 
 ## Quick Start
