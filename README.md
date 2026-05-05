@@ -4,19 +4,12 @@
 
 Open-source WebSocket gateway for connecting your phone directly to your AI agents. No Telegram. No Discord. No third-party servers seeing your messages.
 
-<p align="center">
-  <img src="docs/images/open-shell-icon.png" alt="ShellPhone" width="128">
-</p>
+> ⚠️ **Status: stale / unmaintained.** No first-party iOS client ever shipped publicly. Active development moved to **[BrainJack](https://brainjack.ai)** ([TestFlight](https://testflight.apple.com/join/z8H86Qfj)) — same WSS-channel, your-data-your-server thesis, plus voice in/out and an open backend that can speak OpenClaw v3 or any protocol you wire in. The gateway code here still works and the protocol is documented if you want to build your own client.
 
 <p align="center">
-  <a href="https://testflight.apple.com/join/BnjD4BEf"><img src="https://img.shields.io/badge/TestFlight-Join_Beta-blue?logo=apple" alt="TestFlight"></a>
   <a href="https://github.com/loserbcc/openclaw-gateway/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"></a>
   <a href="https://scrappylabs.ai"><img src="https://img.shields.io/badge/Free_TTS-ScrappyLabs-orange" alt="ScrappyLabs"></a>
 </p>
-
-## Get the App
-
-**[ShellPhone on TestFlight](https://testflight.apple.com/join/BnjD4BEf)** — free iOS client for this gateway. Join the public beta.
 
 ## Why?
 
@@ -50,23 +43,14 @@ The gateway starts on port `8770`. Your auth token is printed to the console on 
 
 ---
 
-## Connect Your Phone
+## Connect a Client
 
-### Option 1: Scan QR Code (Easiest)
+There is no first-party iOS client published. The gateway speaks the **OpenClaw v3** WebSocket protocol — connect any client that implements it, or roll your own.
 
-```bash
-openclaw-gateway --qr
-```
-
-Opens a QR code in your terminal. Scan it with Open-Shell-Phone to connect instantly.
-
-Or visit `http://localhost:8770/setup` for a web-based QR code.
-
-### Option 2: Manual Entry
-
-In Open-Shell-Phone, add a new gateway:
 - **URL**: `wss://your-server:8770/gateway`
-- **Token**: paste the auth token from console
+- **Token**: auth token printed to the console on first run
+
+For a built-and-shipped voice/agent app over WSS, see **[BrainJack](https://brainjack.ai)** instead.
 
 ### Remote Access (Tailscale)
 
@@ -84,8 +68,8 @@ Then use your Tailscale hostname: `wss://your-machine.ts.net/gateway`
 
 ```
 ┌─────────────────┐         ┌──────────────────┐         ┌─────────────────┐
-│  Open-Shell     │  WSS    │  OpenClaw        │         │  Your LLM       │
-│  Phone App      │ ──────► │  Gateway         │ ──────► │  (ollama/etc)   │
+│  Any OpenClaw   │  WSS    │  OpenClaw        │         │  Your LLM       │
+│  v3 client      │ ──────► │  Gateway         │ ──────► │  (ollama/etc)   │
 └─────────────────┘         └──────────────────┘         └─────────────────┘
                                     │
                                     ├──► TTS (ScrappyLabs / local)
